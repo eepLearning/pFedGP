@@ -3,3 +3,6 @@ python ../trainer.py --data-name cifar10 --data-path ../../datafolder --inner-st
 
 # CIFAR-100
 python ../trainer.py --data-name cifar100 --data-path ../../datafolder --save-path ../output/pFedGP
+
+# CINIC-10
+python ../trainer.py --data-name cinic --data-path ../../datafolder --save-path ../output/pFedGP
