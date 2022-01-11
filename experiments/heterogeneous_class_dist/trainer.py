@@ -7,6 +7,7 @@ from pathlib import Path
 
 import sys
 import os
+print("git update working!")
 print(os.getcwd())
 #sys.path.append("/home/parent/child/child2")
 
