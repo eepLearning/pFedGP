@@ -6,7 +6,7 @@ import numpy as np
 import torch.utils.data
 import torchvision.transforms as transforms
 from torchvision.datasets import CIFAR10, CIFAR100
-
+import torchvision
 
 def get_datasets(data_name, dataroot, normalize=True, val_size=10000):
     """
@@ -56,7 +56,24 @@ def get_datasets(data_name, dataroot, normalize=True, val_size=10000):
         train_set, val_set = torch.utils.data.random_split(dataset, [train_size, val_size])
 
     elif data_name == 'cinic10':
-        train_set, val_set, test_set = get_cinic_dataset(dataroot)
+        #TODO: To fix the address for normal case
+        if not os.path.exists("../cinic/train"):
+            raise ValueError("Cinic Dataset")
+       
+       cinic_mean = [0.47889522, 0.47227842, 0.43047404]
+       cinic_std = [0.24205776, 0.23828046, 0.25874835]
+       normalization = transforms.Normalize(cinic_mean, cinic_std)
+       cinic_trans = [transforms.ToTensor()]
+       if normalize:
+          cinic_trans.append(normalization)
+          
+       cinic_transform = transforms.Compose(cinic_trans)
+       print("Function get_dataset Call ")
+       
+       train_set= torchvision.datasets.ImageFolder('./cinic/train',transform=cinic_transform)
+       val_set = torchvision.datasets.ImageFolder('./cinic/valid', transform=cinic_transform)
+       test_set = torchvision.datasets.ImageFolder('./cinic/test', transform=cinic_transform)
+       #train_set, val_set, test_set = get_cinic_dataset(dataroot)
 
     else:
         raise ValueError("choose data_name from ['cifar10', 'cifar100', 'cinic10]")
