@@ -70,9 +70,9 @@ def get_datasets(data_name, dataroot, normalize=True, val_size=10000):
         cinic_transform = transforms.Compose(cinic_trans)
         print("Function get_dataset Call ")
 
-        train_set= torchvision.datasets.ImageFolder('./cinic/train',transform=cinic_transform)
-        val_set = torchvision.datasets.ImageFolder('./cinic/valid', transform=cinic_transform)
-        test_set = torchvision.datasets.ImageFolder('./cinic/test', transform=cinic_transform)
+        train_set= torchvision.datasets.ImageFolder('../cinic/train',transform=cinic_transform)
+        val_set = torchvision.datasets.ImageFolder('../cinic/valid', transform=cinic_transform)
+        test_set = torchvision.datasets.ImageFolder('../cinic/test', transform=cinic_transform)
         #train_set, val_set, test_set = get_cinic_dataset(dataroot)
 
     else:
