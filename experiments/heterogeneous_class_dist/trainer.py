@@ -7,9 +7,10 @@ from pathlib import Path
 
 import sys
 import os
-print("git update working!")
+
 print(os.getcwd())
 sys.path.append(os.getcwd())
+print("git update working!")
 
 import numpy as np
 import torch
