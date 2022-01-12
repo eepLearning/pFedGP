@@ -7,6 +7,7 @@ import torch.utils.data
 import torchvision.transforms as transforms
 from torchvision.datasets import CIFAR10, CIFAR100
 import torchvision
+import os
 
 def get_datasets(data_name, dataroot, normalize=True, val_size=10000):
     """
