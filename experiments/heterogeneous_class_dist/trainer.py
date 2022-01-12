@@ -9,7 +9,7 @@ import sys
 import os
 print("git update working!")
 print(os.getcwd())
-#sys.path.append("/home/parent/child/child2")
+sys.path.append("../../../pFedGP")
 
 import numpy as np
 import torch
