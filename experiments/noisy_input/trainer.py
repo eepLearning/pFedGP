@@ -1,7 +1,9 @@
+import sys
+import os
+
 print(os.getcwd())
 sys.path.append(os.getcwd())
 print("git update working!")
-
 import argparse
 import json
 import logging
