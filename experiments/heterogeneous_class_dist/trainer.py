@@ -9,7 +9,7 @@ import sys
 import os
 print("git update working!")
 print(os.getcwd())
-sys.path.append("../../../pFedGP")
+sys.path.append("../../..")
 
 import numpy as np
 import torch
